@@ -1,0 +1,55 @@
+btParImpar.setOnClickListener(new View.OnClickListener() {
+    @Override
+    public void onClick(View view) {
+        String texto = campoEntrada.getText().toString();
+        int numero = Integer.parseInt(texto);
+        String resultado;
+
+        if (numero % 2 == 0) {
+            resultado = "O número é par.";
+        } else {
+            resultado = "O número é ímpar.";
+        }
+
+        Toast.makeText(MainActivity.this, resultado, Toast.LENGTH_SHORT).show();
+    }
+});
+
+btNPrimo.setOnClickListener(new View.OnClickListener() {
+    @Override
+    public void onClick(View view) {
+        String texto = campoEntrada.getText().toString();
+        int numero = Integer.parseInt(texto);
+        boolean ehPrimo = true;
+
+        if (numero <= 1) {
+            ehPrimo = false;
+        } else {
+            for (int i = 2; i <= Math.sqrt(numero); i++) {
+                if (numero % i == 0) {
+                    ehPrimo = false;
+                    break;
+                }
+            }
+        }
+
+        String resultado = ehPrimo ? "O número é primo." : "O número não é primo.";
+        Toast.makeText(MainActivity.this, resultado, Toast.LENGTH_SHORT).show();
+    }
+});
+
+btFatorial.setOnClickListener(new View.OnClickListener() {
+    @Override
+    public void onClick(View view) {
+        String texto = campoEntrada.getText().toString();
+        int numero = Integer.parseInt(texto);
+        int fatorial = 1;
+
+        for (int i = 1; i <= numero; i++) {
+            fatorial *= i;
+        }
+
+        String resultado = "O fatorial de " + numero + " é " + fatorial;
+        Toast.makeText(MainActivity.this, resultado, Toast.LENGTH_LONG).show();
+    }
+});
